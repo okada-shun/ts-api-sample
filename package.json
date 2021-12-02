@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/okada-shun/ts-api-sample#readme",
   "dependencies": {
-    "fastify": "^3.24.1"
+    "fastify": "^3.24.1",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "@types/node": "^16.11.11",

@@ -1,3 +1,7 @@
 node_modules/
 
 .env
+
+mysql/create_user.sql
+
+mysql/data
