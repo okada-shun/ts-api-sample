@@ -4,4 +4,4 @@ node_modules/
 
 mysql/create_user.sql
 
-mysql/data
+docker/db/data

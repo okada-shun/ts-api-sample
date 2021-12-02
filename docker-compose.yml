@@ -1,5 +1,5 @@
 version: '3'
-services:  
+services:
   db:
     image: mysql:latest
     container_name: mysql_host
@@ -9,10 +9,10 @@ services:
       MYSQL_USER: docker
       MYSQL_PASSWORD: docker
       TZ: 'Asia/Tokyo'
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    command: "mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
     volumes:
-    - ./mysql/data:/var/lib/mysql
-    - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-    - ./mysql/sql:/docker-entrypoint-initdb.d
+      - ./docker/db/data:/var/lib/mysql
+      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/db/sql:/docker-entrypoint-initdb.d
     #ports:
     #- 3306:3306
