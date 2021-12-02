@@ -13,9 +13,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fastify_1 = __importDefault(require("fastify"));
+const client_1 = require("@prisma/client");
+const ulid_1 = require("ulid");
 const server = (0, fastify_1.default)();
-server.get('/ping', (request, reply) => __awaiter(void 0, void 0, void 0, function* () {
+const prisma = new client_1.PrismaClient();
+server.get('/ping', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     return 'pong\n';
+}));
+server.get('/pong', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    return 'ping\n';
+}));
+server.get('/user/get', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const userId = (0, ulid_1.ulid)();
+    return userId;
 }));
 server.listen(8080, (err, address) => {
     if (err) {
