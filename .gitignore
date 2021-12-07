@@ -2,6 +2,10 @@ node_modules/
 
 .env
 
-mysql/create_user.sql
+docker/db/data/
 
-docker/db/data
+users/handlers.js
+users/index.js
+users/schemas.js
+users/server.js
+prisma/seed.js
