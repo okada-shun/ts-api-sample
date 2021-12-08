@@ -6,6 +6,9 @@ const main = async () => {
     logger: true,
   })
   await server.register(usersDomain)
+  server.get('/ping', async (req, res) => {
+    return 'pong\n'
+  })
   server.listen(8080, (err, address) => {
     if (err) {
       console.error(err)

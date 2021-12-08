@@ -19,6 +19,9 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         logger: true,
     });
     yield server.register(users_1.default);
+    server.get('/ping', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        return 'pong\n';
+    }));
     server.listen(8080, (err, address) => {
         if (err) {
             console.error(err);
