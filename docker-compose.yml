@@ -17,9 +17,11 @@ services:
       - ./docker/db/sql:/docker-entrypoint-initdb.d
     ports:
       - 3306:3306
+    network_mode: "host"
   
   api:
     image: ts_api
     container_name: ts_api_container
     ports:
       - 8080:8080
+    network_mode: "host"
