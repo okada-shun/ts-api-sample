@@ -17,3 +17,10 @@ services:
       - ./docker/db/sql:/docker-entrypoint-initdb.d
     ports:
       - 3306:3306
+  
+  api:
+    build:
+      context: .
+    container_name: ts_api_container
+    ports:
+      - 8080:8080
