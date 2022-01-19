@@ -1,4 +1,4 @@
-name: GitHub Actions Demo 2
+name: GitHub Actions Demo 3
 on:
   workflow_dispatch:
     inputs:
@@ -14,15 +14,21 @@ on:
         description: 'My pet'
         required: false
         default: 'Black cat'
+      clothes:
+        description: 'My clothes'
+        required: false
+        default: 'T-shirts'
 jobs:
-  say_hello_pet:
+  say_hello_pet_clothes:
     runs-on: ubuntu-latest
     steps:
       - run: |
           echo Hello $NAME!
           echo -in $HOME
           echo My pet is $PET
+          echo My clothes is $CLOTHES
         env:
           NAME: ${{ github.event.inputs.name }}
           HOME: ${{ github.event.inputs.home }}
           PET: ${{ github.event.inputs.pet }}
+          CLOTHES: ${{ github.event.inputs.clothes }}
