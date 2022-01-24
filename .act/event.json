@@ -1,9 +1,9 @@
 {
   "event": "workflow_dispatch",
   "inputs": {
-    "title": "PR",
-    "body": "PR",
-    "head": "sample-branch",
+    "title": "Pull Request created by workflow_dispatch",
+    "body": "Pull Request created by workflow_dispatch",
+    "head": "sample-branch-4",
     "base": "main"
   }
 }
