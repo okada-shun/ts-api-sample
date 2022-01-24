@@ -1,0 +1,9 @@
+{
+  "event": "workflow_dispatch",
+  "inputs": {
+    "name": "shun",
+    "home": "nihon",
+    "pet": "cat",
+    "clothes": "shirts"
+  }
+}

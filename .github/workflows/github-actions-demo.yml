@@ -3,21 +3,21 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: 'Person to greet'
+        description: "Person to greet"
         required: true
-        default: 'Mona the Octocat'
+        default: "Mona the Octocat"
       home:
-        description: 'location'
+        description: "location"
         required: false
-        default: 'The Octoverse'
+        default: "The Octoverse"
       pet:
-        description: 'My pet'
+        description: "My pet"
         required: false
-        default: 'Black cat'
+        default: "Black cat"
       clothes:
-        description: 'My clothes'
+        description: "My clothes"
         required: false
-        default: 'T-shirts'
+        default: "T-shirts"
 jobs:
   say_hello_pet_clothes:
     runs-on: ubuntu-latest
@@ -27,6 +27,7 @@ jobs:
           echo -in $HOME
           echo My pet is $PET
           echo My clothes is $CLOTHES
+          curl -i -H "Authorization: token ${{ secrets.ACTION_TOKEN }}" -d "{ \"title\": \"sample issue ts-api-sample\", \"body\": \"sample issue ts-api-sample\"}" https://api.github.com/repos/okada-shun/ts-api-sample/issues
         env:
           NAME: ${{ github.event.inputs.name }}
           HOME: ${{ github.event.inputs.home }}
