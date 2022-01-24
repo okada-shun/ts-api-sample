@@ -2,34 +2,33 @@ name: GitHub Actions Demo 3
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: "Person to greet"
+      title:
+        description: "Title of PR"
         required: true
-        default: "Mona the Octocat"
-      home:
-        description: "location"
-        required: false
-        default: "The Octoverse"
-      pet:
-        description: "My pet"
-        required: false
-        default: "Black cat"
-      clothes:
-        description: "My clothes"
-        required: false
-        default: "T-shirts"
+        default: "PR"
+      body:
+        description: "Body of PR"
+        required: true
+        default: "PR"
+      head:
+        description: "Head branch of PR"
+        required: true
+        default: "sample-branch"
+      base:
+        description: "Base branch of PR"
+        required: true
+        default: "main"
+
 jobs:
   say_hello_pet_clothes:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo Hello $NAME!
-          echo -in $HOME
-          echo My pet is $PET
-          echo My clothes is $CLOTHES
-          curl -i -H "Authorization: token ${{ secrets.ACTION_TOKEN }}" -d "{ \"title\": \"sample issue ts-api-sample\", \"body\": \"sample issue ts-api-sample\"}" https://api.github.com/repos/okada-shun/ts-api-sample/issues
-        env:
-          NAME: ${{ github.event.inputs.name }}
-          HOME: ${{ github.event.inputs.home }}
-          PET: ${{ github.event.inputs.pet }}
-          CLOTHES: ${{ github.event.inputs.clothes }}
+          curl -H "Authorization: token ${{ secrets.ACTION_TOKEN }}" -H "Content-Type: application/json; charset=utf-8" 
+          https://api.github.com/repos/okada-shun/ts-api-sample/pulls 
+          -d "{\"title\":$TITLE,\"body\":$BODY,\"head\":$HEAD,\"base\":$BASE}"
+      env:
+          TITLE: ${{ github.event.inputs.title }}
+          BODY: ${{ github.event.inputs.body }}
+          HEAD: ${{ github.event.inputs.head }}
+          BASE: ${{ github.event.inputs.base }}
