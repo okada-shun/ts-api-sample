@@ -1,35 +1,8 @@
 name: GitHub Actions Demo 3
-on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: "Person to greet"
-        required: true
-        default: "Mona the Octocat"
-      home:
-        description: "location"
-        required: false
-        default: "The Octoverse"
-      pet:
-        description: "My pet"
-        required: false
-        default: "Black cat"
-      clothes:
-        description: "My clothes"
-        required: false
-        default: "T-shirts"
+on: push
 jobs:
   say_hello_pet_clothes:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo Hello $NAME!
-          echo -in $HOME
-          echo My pet is $PET
-          echo My clothes is $CLOTHES
-          curl -i -H "Authorization: token ${{ secrets.ACTION_TOKEN }}" -d "{ \"title\": \"sample issue ts-api-sample\", \"body\": \"sample issue ts-api-sample\"}" https://api.github.com/repos/okada-shun/ts-api-sample/issues
-        env:
-          NAME: ${{ github.event.inputs.name }}
-          HOME: ${{ github.event.inputs.home }}
-          PET: ${{ github.event.inputs.pet }}
-          CLOTHES: ${{ github.event.inputs.clothes }}
+          curl -H "Authorization: token ${{ secrets.ACTION_TOKEN }}" -H "Content-Type: application/json; charset=utf-8" https://api.github.com/repos/okada-shun/ts-api-sample/pulls -d "{\"title\":\"PR by GitHub api\",\"head\":\"sample-branch\",\"body\":\"PR by GitHub api\",\"base\":\"main\"}"
