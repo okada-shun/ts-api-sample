@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          curl -H "Authorization: token ${{ secrets.ACTION_TOKEN }}" -H "Content-Type: application/json; charset=utf-8" https://api.github.com/repos/okada-shun/ts-api-sample/pulls -d "{\"title\":\"PR by GitHub api\",\"head\":\"sample-branch\",\"body\":\"PR by GitHub api\",\"base\":\"main\"}"
+          curl -H "Authorization: token ${{ secrets.ACTION_TOKEN }}" -H "Content-Type: application/json; charset=utf-8" https://api.github.com/repos/okada-shun/ts-api-sample/pulls -d "{\"title\":\"PR by GitHub api\",\"head\":\"sample-branch-2\",\"body\":\"PR by GitHub api\",\"base\":\"main\"}"
