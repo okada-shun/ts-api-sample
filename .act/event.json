@@ -1,9 +1,9 @@
 {
   "event": "workflow_dispatch",
   "inputs": {
-    "name": "shun",
-    "home": "nihon",
-    "pet": "cat",
-    "clothes": "shirts"
+    "title": "PR",
+    "body": "PR",
+    "head": "sample-branch",
+    "base": "main"
   }
 }

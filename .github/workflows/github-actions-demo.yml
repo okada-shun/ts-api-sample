@@ -24,6 +24,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          curl -H "Authorization: token ${{ secrets.ACTION_TOKEN }}" -H "Content-Type: application/json; charset=utf-8" 
-          https://api.github.com/repos/okada-shun/ts-api-sample/pulls 
-          -d "{\"title\":${{ github.event.inputs.title }},\"body\":${{ github.event.inputs.body }},\"head\":${{ github.event.inputs.head }},\"base\":${{ github.event.inputs.base }}}"
+          curl -H "Authorization: token ${{ secrets.ACTION_TOKEN }}" -H "Content-Type: application/json; charset=utf-8" https://api.github.com/repos/okada-shun/ts-api-sample/pulls -d "{\"title\":${{ github.event.inputs.title }},\"body\":${{ github.event.inputs.body }},\"head\":${{ github.event.inputs.head }},\"base\":${{ github.event.inputs.base }}}"
