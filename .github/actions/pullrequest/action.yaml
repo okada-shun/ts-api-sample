@@ -1,0 +1,22 @@
+name: "Pull Request"
+description: "Make pull request on workflow_dispatch"
+author: "Okada Shun"
+inputs:
+  title:
+    description: "Title of PR"
+    required: true
+    default: "PR"
+  body:
+    description: "Body of PR"
+    required: true
+    default: "PR"
+  head:
+    description: "Head branch of PR"
+    required: true
+    default: "sample-branch"
+  base:
+    description: "Base branch of PR"
+    required: true
+    default: "main"
+runs: |
+  curl -H "Authorization: token ${{ secrets.ACTION_TOKEN }}" -H "Content-Type: application/json; charset=utf-8" https://api.github.com/repos/okada-shun/ts-api-sample/pulls -d "{\"title\":\"${{ github.event.inputs.title }}\",\"body\":\"${{ github.event.inputs.body }}\",\"head\":\"${{ github.event.inputs.head }}\",\"base\":\"${{ github.event.inputs.base }}\"}"
