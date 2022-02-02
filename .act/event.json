@@ -1,8 +1,8 @@
 {
   "event": "workflow_dispatch",
   "inputs": {
-    "title": "PR",
-    "body": "PR",
+    "title": "PullRequest",
+    "body": "PullRequest",
     "head": "sample-branch",
     "base": "main"
   }
